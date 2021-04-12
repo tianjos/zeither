@@ -4,7 +4,7 @@ Either Monad only for study purposes now.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pypi.org/project/zeither/) to install zeither.
 
 ```bash
 pip install zeither
