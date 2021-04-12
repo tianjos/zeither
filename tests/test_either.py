@@ -1,5 +1,5 @@
 from zeither import __version__
-from zeither import Either
+from zeither import Either, left, right
 
 
 def test_version():
@@ -23,3 +23,13 @@ def test_is_either():
 
 def test_is_not_either():
     assert Either.is_either(1) == False
+
+
+def test_is_right():
+    either = right(1)
+    assert either.is_right == True
+
+
+def test_is_not_right():
+    either = left(1)
+    assert either.is_right == False
