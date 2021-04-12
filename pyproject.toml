@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "either"
+name = "zeither"
 version = "0.1.0"
-description = ""
-authors = ["Thiago Brito <thiago.britos@berghem.com.br>"]
+description = "A either python package (study purpose)"
+authors = ["tba"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

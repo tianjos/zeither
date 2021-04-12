@@ -1,5 +1,5 @@
-from either import __version__
-from either import Either
+from zeither import __version__
+from zeither import Either
 
 
 def test_version():
