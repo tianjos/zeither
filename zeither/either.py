@@ -27,6 +27,12 @@ class Either(Generic[_Right, _Left]):
             return Either(result)
         return Either(self._value, False)
 
+    @staticmethod
+    def is_either(o: object):
+        if isinstance(o, Either):
+            return True
+        return False
+
 
 right: Callable[[Any], Either] = lambda x: Either(x)
 
