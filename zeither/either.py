@@ -24,14 +24,14 @@ class Either(Generic[_Right, _Left]):
     def map(self, function: Callable[[_Arg1], _Result1]) -> Either:
         if self._is_right:
             result = function(self._value)
-            return Either(result)
-        return Either(self._value, False)
+            return right(result)
+        return left(self._value)
 
     def left_map(self, function: Callable[[_Arg1], _Result1]) -> Either:
         if self._is_right:
-            return Either(self._value)
+            return right(self._value)
         result = function(self._value)
-        return Either(result, False)
+        return left(result)
 
     @staticmethod
     def is_either(o: object):

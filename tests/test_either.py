@@ -3,22 +3,22 @@ from zeither import Either, left, right
 
 
 def test_either_map():
-    either = Either(1)
+    either = right(1)
     assert either.map(lambda x: x + 1).value == 2
 
 
 def test_either_map_left_side():
-    either = Either(1, False)
+    either = left(1)
     assert either.map(lambda x: x + 1).value == 1
 
 
 def test_left_map():
-    either = Either(1, False)
+    either = left(1)
     assert either.left_map(lambda x: x + 1).value == 2
 
 
 def test_left_map_right_side():
-    either = Either(1)
+    either = right(1)
     assert either.left_map(lambda x: x + 1).value == 1
 
 
