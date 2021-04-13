@@ -27,6 +27,12 @@ class Either(Generic[_Right, _Left]):
             return Either(result)
         return Either(self._value, False)
 
+    def left_map(self, function: Callable[[_Arg1], _Result1]) -> Either:
+        if self._is_right:
+            return Either(self._value)
+        result = function(self._value)
+        return Either(result, False)
+
     @staticmethod
     def is_either(o: object):
         if isinstance(o, Either):
