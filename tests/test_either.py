@@ -1,4 +1,3 @@
-from zeither import __version__
 from zeither import Either, left, right
 
 
@@ -39,3 +38,23 @@ def test_is_right():
 def test_is_not_right():
     either = left(1)
     assert either.is_right == False
+
+
+def test_bind():
+    either = right(1)
+    assert Either.is_either(either.bind(lambda n: right(n + 1))) == True
+
+
+def test_bind_value():
+    either = right(1)
+    assert either.bind(lambda n: right(n + 1)).value == 2
+
+
+def test_bind_left_side():
+    either = left(1)
+    assert Either.is_either(either.bind(lambda n: right(n + 1))) == True
+
+
+def test_bind_value_left_side():
+    either = left(1)
+    assert either.bind(lambda n: right(n + 1)).value == 1

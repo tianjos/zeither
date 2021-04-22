@@ -8,7 +8,7 @@ _Arg1 = TypeVar("_Arg1", covariant=True)
 _Result1 = TypeVar("_Result1", covariant=True)
 
 
-class Either(Generic[_Right, _Left]):
+class Either(Generic[_Left, _Right]):
     def __init__(self, value: Any, is_right: bool = True):
         self._value = value
         self._is_right = is_right
@@ -32,6 +32,12 @@ class Either(Generic[_Right, _Left]):
             return right(self._value)
         result = function(self._value)
         return left(result)
+
+    def bind(self, function: Callable[[_Arg1], Either]) -> Either:
+        if self._is_right:
+            either = function(self._value)
+            return either
+        return left(self._value)
 
     @staticmethod
     def is_either(o: object):
