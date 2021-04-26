@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zeither"
-version = "0.1.0"
+version = "0.2.0"
 description = "A either python package (study purpose)"
 authors = ["tba"]
 
