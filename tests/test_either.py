@@ -1,4 +1,27 @@
+import pytest
 from zeither import Either, left, right, is_either
+
+
+def test_right():
+    either = right(1)
+    assert either.right() == 1
+
+
+def test_value_error_right():
+    either = right(1)
+    with pytest.raises(ValueError):
+        either.left()
+
+
+def test_left():
+    either = left(1)
+    assert either.left() == 1
+
+
+def test_value_error_left():
+    either = left(1)
+    with pytest.raises(ValueError):
+        either.right()
 
 
 def test_either_map():

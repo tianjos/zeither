@@ -22,6 +22,16 @@ class Either(Generic[_Left, _Right]):
     def is_right(self) -> bool:
         return self._is_right
 
+    def right(self) -> Either[_Left, _Right]:
+        if self.is_right:
+            return self._value
+        raise ValueError("try to extract right value on left")
+
+    def left(self) -> Either[_Left, _Right]:
+        if not self.is_right:
+            return self._value
+        raise ValueError("try to extract left value on right")
+
     def map(self, function: Callable[[_Arg1], _Result1]) -> Either[_Left, _Result1]:
         if self._is_right:
             result = function(self._value)
