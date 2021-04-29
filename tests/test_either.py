@@ -1,4 +1,4 @@
-from zeither import Either, left, right
+from zeither import Either, left, right, is_either
 
 
 def test_either_map():
@@ -23,11 +23,11 @@ def test_left_map_right_side():
 
 def test_is_either():
     either = Either(1)
-    assert Either.is_either(either) == True
+    assert is_either(either) == True
 
 
 def test_is_not_either():
-    assert Either.is_either(1) == False
+    assert is_either(1) == False
 
 
 def test_is_right():
@@ -42,7 +42,7 @@ def test_is_not_right():
 
 def test_bind():
     either = right(1)
-    assert Either.is_either(either.bind(lambda n: right(n + 1))) == True
+    assert is_either(either.bind(lambda n: right(n + 1))) == True
 
 
 def test_bind_value():
@@ -52,7 +52,7 @@ def test_bind_value():
 
 def test_bind_left_side():
     either = left(1)
-    assert Either.is_either(either.bind(lambda n: right(n + 1))) == True
+    assert is_either(either.bind(lambda n: right(n + 1))) == True
 
 
 def test_bind_value_left_side():

@@ -3,6 +3,17 @@ name = "zeither"
 version = "0.2.0"
 description = "A either python package (study purpose)"
 authors = ["tba"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/tba91/zeither"
+repository = "https://github.com/tba91/zeither"
+keywords = ["either", "functional programming", "typing"]
+classifiers = [
+    "Environment :: Console",
+    "Framework :: Pytest",
+    "Operating System :: Linux",
+    "Topic :: Software Development :: Build Tools",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -14,6 +25,7 @@ flake8 = "^3.9.0"
 black = "^20.8b1"
 safety = "^1.10.3"
 pytest-cov = "^2.11.1"
+codecov = "^2.1.11"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

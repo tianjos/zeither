@@ -13,7 +13,7 @@ pip install zeither
 ## Usage
 
 ```python
-from zeither import Either, left, right
+from zeither import Either, left, right, is_either
 
 either = Either(1)
 
@@ -34,6 +34,8 @@ assert either.bind(lambda n: right(n + 1)).value == 2
 either = left(1)
 
 assert either.bind(lambda n: right(n + 1)).value == 1
+
+assert is_either(either) == True
 
 ```
 
